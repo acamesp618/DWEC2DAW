@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body onload="alerta()">
+
+</body>
+
+</html>
+
+<script> function alerta() {
+    var mensaje;
+    var opcion = prompt("¿Numeros de hijos?");
+
+    if (opcion == null || opcion == "") {
+        mensaje = "No ha introducido ningun numero";
+    } else {
+        mensaje = opcion;
+    }
+    alert(mensaje);
+}</script>
