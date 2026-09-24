@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body onload="alerta()">
+<body onload="javascript:alerta();">
 
 </body>
 </html>
 
 <script>
     function alerta() { /* Función donde pide el numero de hijos */
-        n1 = prompt("Escribe un numero");
-        n2 = prompt("Escribe otro numero");
+        var n1 = parseFloat(prompt("Escribe un numero"));
+        var n2 = parseFloat(prompt("Escribe otro numero"));
         var sum = n1 + n2;
 
-        alert(sum);
-    }</script>
+        alert("Suma = " + sum);
+    }
+</script>
