@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body onload="alerta()">
+<body onload="javascript:alerta();">
 
 </body>
 </html>
@@ -12,9 +12,9 @@
 <script>
     function alerta(){
         var variable = 2;
-        const PI = 3.1415926535;
-        alert(variable);
-        alert(PI);
+        const PI = Math.PI;
+        alert("Valor de la variable: " + variable);
+        alert("Valor de la constante: " + PI);
     }
 
 </script>
