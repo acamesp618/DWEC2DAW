@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+      function alerta() {
+        var sueldo = parseFloat(prompt("Escribe el sueldo"));
+        var antiguedad = parseFloat(prompt("Escribe los años de antigüedad"));
+        var prima = 0;
+
+        if (antiguedad >= 10){
+          if (sueldo < 750) {
+            prima = sueldo * 0.10;
+          } else {
+            prima = sueldo * 0.05;
+          }
+        } else
+        var sueldoFinal = sueldo + prima;
+
+        alert("La prima es de " + prima + " €\nEl sueldo final es de " + sueldoFinal + " €");
+      }
+    </script>
+</head>
+<body onload="javascript:alerta();">
+
+</body>
+</html>
+
