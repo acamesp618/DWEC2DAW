@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var numeros = []
+        var n1 = Number(prompt("Introducir numero ?"));
+        numeros.push(n1);
+
+        var n2 = Number(prompt("Introducir un segundo numero ?"));
+        numeros.push(n2);
+
+        var n3 = Number(prompt("Introducir un tercer numero ?"));
+        numeros.push(n3);
+
+        numeros.sort(function (a, b) {return a - b })
+
+        alert(numeros.join(", "));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function alerta() {
+            var n1 = Number(prompt("Escribe un numero"));
+            var n2 = Number(prompt("Escribe un segundo numero"));
+            var n3 = Number(prompt("Escribe un tercer numero"));
+
+            if (n1 <= n2 && n1 <= n3){
+                if (n2 <= n3){
+                    alert(n1 + " - " + n2 + " - " + n3);
+                } else {
+                    alert(n1 + " - " + n3 + " - " + n2);
+                }
+            } else if (n2 <= n1 && n2 <= n3){
+                if (n1 <= n3) {
+                    alert(n2 + " - " + n1 + " - " + n3);
+                } else {
+                    alert(n2 + " - " + n3 + " - " + n1);
+                }
+            } else {
+                if (n1 <= n2) {
+                    alert(n3 + " - " + n1 + " - " + n2);
+                } else {
+                    alert(n3 + " - " + n2 + " - " + n1);
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="javascript:alerta();">
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function alerta() {
+            var a = parseFloat(prompt("Escribe el valor de a"));
+            var b = parseFloat(prompt("Escribe el valor de b"));
+            var c = parseFloat(prompt("Escribe el valor de c"));
+
+            var ecuacion = b * b -4 * a * c;
+
+            if (a == 0) {
+                alert("No es una ecuación de segundo grado");
+            } else if (ecuacion > 0) {
+                var x1 = (-b + Math.sqrt(ecuacion)) / (2 * a);
+                var x2 = (-b - Math.sqrt(ecuacion)) / (2 * a);
+
+                alert("x1 = " + x1 + "\nx2 = " + x2);
+            } else if (ecuacion == 0){
+                var x = -b / (2 * a);
+
+                alert("x = " + x);
+            } else {
+                alert("No tiene soluciones reales");
+            }
+
+
+        }
+    </script>
+</head>
+<body onload="javascript:alerta();">
+
+</body>
+</html>

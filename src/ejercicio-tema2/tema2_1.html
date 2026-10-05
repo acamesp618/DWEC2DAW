@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function alerta() {
+            var n1 = parseFloat(prompt("Escribe un numero"));
+            var n2 = parseFloat(prompt("Escribe otro numero"));
+            if (n1 > n2){
+                alert("El valor " + n1 + " es mayor que " + n2);
+            } else if (n2 > n1){
+                alert("El valor " + n2 + " es mayor que " + n1);
+            } else {
+                alert("Los valores son iguales")
+            }
+
+        }
+    </script>
+</head>
+<body onload="javascript:alerta();">
+
+</body>
+</html>
+
