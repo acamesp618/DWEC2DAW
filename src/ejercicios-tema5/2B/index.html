@@ -2,14 +2,14 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Cesta de la compra</title>
     <script>
         let cesta = [];
         let opcion;
 
 
         do {
-            option = prompt(
+            opcion = prompt(
                 "CESTA DE LA COMPRA\n\n" +
                 "1. Ver cesta\n" +
                 "2. Insertar un artículo\n" +
@@ -19,11 +19,17 @@
                 "Elige una opción:"
             );
 
-            switch (option) {
+            switch (opcion) {
                 case "1":
+                    if (cesta.length === 0) {
+                        alert("La cesta está vacía.");
+                        return;
+                    }
+                    let mensaje = "Código | Nombre | Precio | Cantidad";
+                    let total = 0;
 
                     for (let i = 0; i < cesta.length; i++) {
-                        alert("Código | Nombre | Precio | Cantidad");
+
                         alert(cesta[i].cod + " | " + cesta[i].nombre + " | " + cesta[i].precio + " | " + cesta[i].cantidad);
                     }
                     break;
@@ -47,11 +53,11 @@
                     break;
 
                 case "3":
-
+                    borrarArticulo();
                     break;
 
                 case "4":
-
+                    vaciarCesta();
                     break;
 
                 case "5":
