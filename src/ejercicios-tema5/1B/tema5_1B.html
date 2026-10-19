@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // Función 1: Solicita las temperaturas al usuario y llena el array 3D [seccion][maquina][sensor]
+        function introducirTemperaturas(secciones, maquinas, sensores) {
+            let temperaturas = [];
+
+            for (let s = 0; s < secciones; s++) {
+                temperaturas[s] = [];
+                for (let m = 0; m < maquinas; m++) {
+                    temperaturas[s][m] = [];
+                    for (let k = 0; k < sensores; k++) {
+                        let valor;
+                        do {
+                            valor = prompt(`Sección ${s + 1}, Máquina ${m + 1}, Sensor ${k + 1}:\nIntroduce la temperatura (°C):`);
+                        } while (valor === null || valor.trim() === "" || isNaN(valor));
+
+                        temperaturas[s][m][k] = Number(valor);
+                    }
+                }
+            }
+
+            return temperaturas;
+        }
+
+        // Función 2: Calcula la temperatura media de cada máquina en cada sección
+        function calcularMedias(temperaturas) {
+            let resultadoText = "--- MEDIA DE TEMPERATURA POR MÁQUINA ---\n\n";
+
+            for (let s = 0; s < temperaturas.length; s++) {
+                for (let m = 0; m < temperaturas[s].length; m++) {
+                    let suma = 0;
+                    let numSensores = temperaturas[s][m].length;
+
+                    for (let k = 0; k < numSensores; k++) {
+                        suma += temperaturas[s][m][k];
+                    }
+
+                    let media = suma / numSensores;
+                    resultadoText += `Sección ${s + 1} - Máquina ${m + 1}: ${media.toFixed(2)} °C\n`;
+                }
+            }
+
+            alert(resultadoText);
+        }
+
+        // Función 3: Determina la temperatura máxima registrada en cada sección
+        function maximoPorSeccion(temperaturas) {
+            let resultadoText = "--- TEMPERATURA MÁXIMA POR SECCIÓN ---\n\n";
+
+            for (let s = 0; s < temperaturas.length; s++) {
+                let maxSeccion = -Infinity;
+
+                for (let m = 0; m < temperaturas[s].length; m++) {
+                    for (let k = 0; k < temperaturas[s][m].length; k++) {
+                        let tempActual = temperaturas[s][m][k];
+                        if (tempActual > maxSeccion) {
+                            maxSeccion = tempActual;
+                        }
+                    }
+                }
+
+                resultadoText += `Sección ${s + 1}: ${maxSeccion} °C\n`;
+            }
+
+            alert(resultadoText);
+        }
+
+        // Función 4: Detecta si algún sensor supera los 100°C y muestra una alerta por cada uno
+        function detectarSobrecalentamientos(temperaturas) {
+            let sobrecalentamientos = 0;
+            let resumen = "--- ALERTAS DE SOBRECALENTAMIENTO (>100°C) ---\n\n";
+
+            for (let s = 0; s < temperaturas.length; s++) {
+                for (let m = 0; m < temperaturas[s].length; m++) {
+                    for (let k = 0; k < temperaturas[s][m].length; k++) {
+                        let tempActual = temperaturas[s][m][k];
+
+                        if (tempActual > 100) {
+                            sobrecalentamientos++;
+                            resumen += `ALERTA: Sección ${s + 1}, Máquina ${m + 1}, Sensor ${k + 1} -> ${tempActual} °C\n`;
+                        }
+                    }
+                }
+            }
+
+            if (sobrecalentamientos === 0) {
+                alert("No se detectaron sobrecalentamientos. Todos los sensores están a 100°C o menos.");
+            } else {
+                alert(resumen);
+            }
+        }
+
+        // Función principal que orquesta todo sin usar variables ni constantes globales
+        function iniciarControlTemperaturas() {
+            // Definición local de dimensiones (2 secciones, 3 máquinas, 5 sensores)
+            let numSecciones = 2;
+            let numMaquinas = 3;
+            let numSensores = 5;
+
+            // 1 y 2. Pedir e inicializar temperaturas
+            let temperaturas = introducirTemperaturas(numSecciones, numMaquinas, numSensores);
+
+            // 3 y 4. Ejecutar calculos y mostrar resultados
+            calcularMedias(temperaturas);
+            maximoPorSeccion(temperaturas);
+            detectarSobrecalentamientos(temperaturas);
+        }
+
+        // Iniciar la aplicación
+        iniciarControlTemperaturas();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        let cesta = [];
+        let opcion;
+
+
+        do {
+            option = prompt(
+                "CESTA DE LA COMPRA\n\n" +
+                "1. Ver cesta\n" +
+                "2. Insertar un artículo\n" +
+                "3. Borrar un artículo\n" +
+                "4. Vaciar cesta\n" +
+                "5. Salir\n\n" +
+                "Elige una opción:"
+            );
+
+            switch (option) {
+                case "1":
+
+                    for (let i = 0; i < cesta.length; i++) {
+                        alert("Código | Nombre | Precio | Cantidad");
+                        alert(cesta[i].cod + " | " + cesta[i].nombre + " | " + cesta[i].precio + " | " + cesta[i].cantidad);
+                    }
+                    break;
+
+                case "2":
+                    let cod = prompt("Introduce el código del artículo:");
+                    let nombre = prompt("Introduce el nombre del artículo:");
+                    let precio = parseFloat(prompt("Introduce el precio:"));
+                    let cantidad = parseInt(prompt("Introduce la cantidad:"));
+
+                    let articulo = {
+                        cod: cod,
+                        nombre: nombre,
+                        precio: precio,
+                        cantidad: cantidad
+                    }
+
+                    cesta.push(articulo);
+
+                    alert("Articulo añadido correctamente");
+                    break;
+
+                case "3":
+
+                    break;
+
+                case "4":
+
+                    break;
+
+                case "5":
+                    alert("Hasta pronto");
+                    break;
+
+                /*default:
+                    alert("Opción no válida")*/
+            }
+        } while (opcion !== 5);
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function alerta(){
+            var fact = 1;
+            var a = Number(prompt("Escribe un numero"));
+
+            if (a < 0) {
+                alert("El numero debe ser mayor o igual a 0");
+            } else {
+                for (var x = a; x >= 1; x--){
+                    fact = fact * x;
+                }
+
+                alert("El factorial de " + a + " es " + fact);
+            }
+        }
+    </script>
+</head>
+<body onload="javascript:alerta()">
+
+</body>
+</html>
