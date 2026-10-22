@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        class Articulo {
+            constructor(codigo, nombre, precio, cantidad) {
+                this.codigo = codigo;
+                this.nombre = nombre;
+                this.precio = precio;
+                this.cantidad = cantidad;
+
+            }
+
+            verArticulo () {return this.codigo + " " + this.nombre + " " + this.precio + " € " + this.cantidad + " unidades"};
+
+        }
+
+        class Cesta {
+            #codigo = 0;
+            #articulos = [];
+
+            #verCesta() {
+                let cad = "Cod Nombre Cantidad Precio"
+            }
+            constructor() {
+                this.item = [];
+            }
+
+            agregarArticulo (articulo) {
+                this.item.push({articulo, cantidad});
+            }
+
+            calcularTotal () {
+                return this.item.reduce( (total, item) => total + item.cantidad, 0);
+            }
+
+
+            let cesta1 = new Cesta();
+            cesta1.menuCesta();
+        }
+
+        class Menu {
+            constructor(){
+
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
