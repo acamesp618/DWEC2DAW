@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8" >
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style type="text/css">
         input:invalid {border: 1px solid red; }
         input:valid {border: 1px solid green;}
@@ -10,8 +10,57 @@
     <script>
 
         class FormularioBaja {
+            constructor() {
+                // Referencias a los elementos del DOM
+                this.inputDni = document.getElementById('dni');
+                this.labelDni = document.getElementById('ldni');
+                this.inputMatri = document.getElementById('matri');
+                this.textoOriginalLabelDni = this.labelDni.textContent;
 
+                // Inicializar los eventos
+                this.initEvents();
+            }
+
+            initEvents() {
+                // Eventos de foco y pérdida de foco para el DNI
+                this.inputDni.addEventListener('focus', () => this.alEnfocarDni());
+                this.inputDni.addEventListener('blur', () => this.alDesenfocarDni());
+
+                // Eventos para personalizar la validacion de la matricula
+                this.inputMatri.addEventListener('invalid', (e) => this.validarMatricula(e));
+                this.inputMatri.addEventListener('input', (e) => this.limpiarErrorMatricula(e));
+            }
+
+            // Cambia la etiqueta del DNI cuando recibe el foco
+            alEnfocarDni() {
+                this.labelDni.textContent = "Editando DNI...";
+            }
+
+            // Restaura la etiqueta del DNI cuando pierde el foco
+            alDesenfocarDni() {
+                this.labelDni.textContent = this.textoOriginalLabelDni;
+            }
+
+            // Personaliza el mensaje de error cuando la matrícula no cumple el patrón o está vacía
+            validarMatricula(e) {
+                const input = e.target;
+                if (input.vality.valueMissing){
+                    input.setCustomValidity("Por favor, introduce la matricula.");
+                } else if (input.vality.patternMismatch){
+                    input.setCustomValidity("El formato de la matrícula no es válido. Debe contener 4 números y 3 letras mayúsculas (ej. 1234BCD).");
+                }
+            }
+
+            // Limpia el mensaje personalizado durante la escritura para permitir revalidar
+            limpiarErrorMatricula(e) {
+                e.target.setCustomValidity("");
+            }
         }
+
+        // Instanciar la clase una vez el DOM esté totalmente cargado
+        document.addEventListener("DOMContentLoaded", () =>{
+            new FormularioBaja();
+        })
 
     </script>
 </head>
